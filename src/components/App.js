@@ -7,12 +7,15 @@ function App() {
 
   // this data will be passed down to the ShoppingList as a prop
   console.log(items);
-
+  const [isLight, setisLight] = useState(true)
+  const handleClick = () => {
+    setisLight(light => (light = !isLight))
+  }
   return (
-    <div className={"App " + (false ? "dark" : "light")}>
+    <div className={"App " + (isLight ? "light" : "dark")}>
       <header>
         <h2>Shopster</h2>
-        <button>Dark Mode</button>
+        <button onClick={handleClick}>{isLight ? "light" : "dark"} Mode</button>
       </header>
       <ShoppingList items={items} />
     </div>
